@@ -1,63 +1,33 @@
-# WhatsApp Clone - Demo (Monorepo)
+📱 WhatsApp Clone - A Real-Time Chat Simulation
+This project is a full-stack application that simulates a WhatsApp Web chat interface. It processes and displays real-time chat data from simulated webhook payloads, providing a clean and responsive user experience. The application demonstrates a well-structured backend for data processing and a dynamic frontend built with real-time updates in mind.
 
-This is a runnable demo project for the Full Stack Developer evaluation task: a WhatsApp Web–like interface that reads sample webhook payloads and displays conversations.
+🚀 Live Demo
+The complete application is hosted and publicly accessible. You can view the live demo here:
 
-## What is included
-- `server/` — Node.js + Express backend with MongoDB (Mongoose) and Socket.IO.
-- `server/scripts/payloads/` — the sample payload JSON files you uploaded.
-- `public/` — a simple frontend (HTML/JS) served by the backend.
+https://whatsapp-clone-assigment.onrender.com
 
-## Quick start (local)
-1. Ensure you have Node.js (>=16) and npm, and MongoDB available:
-   - You can run a local MongoDB server (`mongod`) or use MongoDB Atlas and set `MONGO_URI`.
+✨ Features
+WhatsApp Web-Like UI: A clean and intuitive user interface designed to mimic the look and feel of WhatsApp Web.
 
-2. Copy env:
-   ```bash
-   cd server
-   cp .env.example .env
-   # edit .env to set MONGO_URI if needed
-   ```
+Real-Time Conversations: The interface updates automatically with new messages and status changes, thanks to a WebSocket implementation using Socket.IO.
 
-3. Install dependencies and start:
-   ```bash
-   cd server
-   npm install
-   npm start
-   ```
+Message Processing: A server-side script and API endpoints process simulated webhook payloads to manage message data.
 
-   The server serves the frontend at http://localhost:4000
+Conversation Grouping: Messages are neatly organized into conversations, grouped by the wa_id (WhatsApp ID).
 
-4. Seed the database with the included payloads:
-   ```bash
-   cd server
-   npm run process
-   ```
+Message Display: All messages are displayed in a familiar chat bubble format, including timestamps and status indicators (sent, delivered, read).
 
-   This reads JSON files from `server/scripts/payloads` and inserts/updates messages in MongoDB.
+Send Message (Demo): Users can type and send messages, which are instantly displayed in the chat and saved to the database. No external messages are actually sent, as per the project requirements.
 
-5. Open the app: visit http://localhost:4000
+Responsive Design: The application is optimized for use on both desktop and mobile devices.
 
-## Endpoints
-- `GET /api/conversations` — list conversations grouped by `wa_id`
-- `GET /api/messages/:wa_id` — messages for a conversation
-- `POST /api/messages/:wa_id/send` — create (store-only) a new outgoing message
-- `POST /webhook` — webhook receiver (you can `POST` sample payloads here)
+💻 Tech Stack
+Backend: Node.js, Express.js
 
-## Deployment
-- Deploy `server/` to Render/Heroku/Railway. Set `MONGO_URI` env variable.
-- The `public/` static frontend is served by the Express server.
+Database: MongoDB Atlas with Mongoose ODM
 
-## Notes and assumptions
-- Status updates use `meta_msg_id` or `id` fields to match messages.
-- The frontend is intentionally simple to make running locally easier. It demonstrates:
-  - Conversations list
-  - Message bubbles
-  - Send message (saves to DB)
-  - Real-time updates via Socket.IO
+Real-time Communication: Socket.IO
 
-## Need help?
-If you want, I can:
-- Convert the frontend to Next.js + Tailwind for a closer WhatsApp UI.
-- Provide instructions for deploying to Render/Vercel.
-- Produce a GitHub-ready repo structure.
+Frontend: HTML, CSS, JavaScript
 
+Deployment: Render
