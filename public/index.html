@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>WhatsApp Clone - Demo</title>
+  <style>
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; }
+    .app { display:flex; height:100vh; }
+    .left { width:320px; border-right:1px solid #ddd; overflow:auto; }
+    .right { flex:1; display:flex; flex-direction:column; }
+    .header { padding:12px; background:#075E54; color:white; font-weight:bold; }
+    .chat-list-item { padding:12px; border-bottom:1px solid #f0f0f0; cursor:pointer; }
+    .chat-list-item:hover { background:#f9f9f9; }
+    .messages { flex:1; padding:16px; overflow:auto; background:#e5ddd5; }
+    .bubble { max-width:60%; padding:10px 12px; border-radius:8px; margin-bottom:8px; }
+    .bubble.left { background:white; align-self:flex-start; }
+    .bubble.right { background:#dcf8c6; align-self:flex-end; }
+    .sendbox { display:flex; padding:8px; border-top:1px solid #ddd; }
+    .sendbox input { flex:1; padding:10px; border:1px solid #ccc; border-radius:20px; margin-right:8px; }
+    .sendbox button { padding:10px 16px; border-radius:20px; border:none; background:#075E54; color:white; }
+    .meta { font-size:11px; color:#666; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="left">
+      <div class="header">WhatsApp Clone</div>
+      <div id="conversations"></div>
+    </div>
+    <div class="right">
+      <div id="chatHeader" class="header" style="background:#128C7E">Select a conversation</div>
+      <div id="messages" class="messages"></div>
+      <div class="sendbox">
+        <input id="msgInput" placeholder="Type a message"/>
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
